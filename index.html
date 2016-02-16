@@ -143,7 +143,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a>
+                        <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a>
                     </div>
                 </section>
                 
@@ -222,6 +222,121 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/16/markdown/" class="article-date">
+      <time datetime="2016-02-16T01:48:11.000Z" itemprop="datePublished">2016-02-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/16/markdown/">Markdown</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h1><p>Markdown是由Jonh Gruber创建的一种轻量级的标记语言,目标是实现「易读易写」。它让人们能够以纯文本格式来编写文档，然后转换成html 文档。因为易读易写的特性，在写博客的人群中大受欢迎。</p>
+<p>#Markdown编辑器<br>推荐以下几种Markdown编辑器：</p>
+<blockquote>
+<ol>
+<li>Mac: Mou、Byword</li>
+<li>Windows: Sublime Text+Markdown 插件 、MarkdownPad</li>
+<li>Linux: Retext</li>
+<li>在线编辑器：<a href="http://jianshu.com" target="_blank" rel="external">简书</a>,<a href="https://stackedit.io/editor#" target="_blank" rel="external">stackedit</a></li>
+</ol>
+</blockquote>
+<h1 id="Markdown常用语法"><a href="#Markdown常用语法" class="headerlink" title="Markdown常用语法"></a>Markdown常用语法</h1><h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>Markdown标题支持类 Setext 和类 atx 形式。<br>类Setext使用底线的格式，利用<em>=</em>(最高阶标题)和<em>-</em>(第二阶标题)，例如：</p>
+<pre><code>This is an H1
+=======
+This is an H2
+------------
+</code></pre><p>任意数量的<em>=</em>和<em>-</em>都有效果<br>类Atx的形式则是在行首插入1到6个<em>#</em>，对应标题1到6阶，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#36825;&#26159; H1&#10;##&#36825;&#26159; H2&#10;##### &#36825;&#26159;H5</span><br></pre></td></tr></table></figure></p>
+<p>实际效果如下</p>
+<h1 id="这是-H1"><a href="#这是-H1" class="headerlink" title="这是 H1"></a>这是 H1</h1><h2 id="这是-H2"><a href="#这是-H2" class="headerlink" title="这是 H2"></a>这是 H2</h2><h5 id="这是H5"><a href="#这是H5" class="headerlink" title="这是H5"></a>这是H5</h5><h1 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h1><p>Markdown 标记区块引用是使用类似email的方式，在每行头部加上<em>&gt;</em>，当然你也可以偷懒只在区块的第一行添加。区块引用也可以嵌套<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#62;This is a paragraph&#10;&#62;hello world&#10;&#62;&#62;hello world    &#23884;&#22871;&#20351;&#29992;&#10;&#62;&#10;&#62;hello world</span><br></pre></td></tr></table></figure></p>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>Markdown 支持有序列表和无序列表。<br>无序列表使用星号、加号或是减号作为列表标记：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*  red&#10;*  blue&#10;*  yellow</span><br></pre></td></tr></table></figure></p>
+<p>有序列表使用数字接着一个英文句点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.  Bird&#10;2.  Fish&#10;3.  Dragon</span><br></pre></td></tr></table></figure></p>
+<h1 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h1><p>建立代码区块只需要简单的缩进4个空格或者一个制表符就可以。</p>
+<pre><code>这是一个普通段落。
+    这是一个代码区块
+</code></pre><p>也可以使用三个`在代码块开始结束位置来标志，如下所示：</p>
+<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(gt)</span>:</span></span><br><span class="line">    print(<span class="string">"hello,world"</span>)</span><br></pre></td></tr></table></figure>
+</code></pre><h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>使用3个以上的星号,减号，或者底线就可以实现：</p>
+<hr>
+<hr>
+<pre><code>***
+---
+</code></pre><p>如上所示但是分割线行内不能出现除空格符以上三种字符以外其他字符</p>
+<h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h1><p>Markdown支持两种形式的链接语法：<strong>行内式</strong>和<strong>参考式</strong>。<br>两种都使用[方括号]来标记链接文字。<br><strong>行内式</strong>只需要在方括号后面紧跟着圆括号并且插入链接网址即可，如果希望加入链接的title文字，只需要网址后面用双引号把title文字包含起来。</p>
+<pre><code>This is [a link](http://google.com/&quot;title&quot;) inline link.
+</code></pre><p>也可以使用相对路径：</p>
+<pre><code>This is [about](/about/) page
+</code></pre><p><strong>参考式</strong>链接是在链接文字接上另一个方括号，而在第二个方括号里面要填入用以辨识的链接的标记:</p>
+<pre><code>This is [my website][Inspiration]
+</code></pre><p>然后你可以在任意位置把这个标记的链接内容定义出来</p>
+<pre><code>[Inspiration]: http://songkaiape.github.io
+</code></pre><h1 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h1><p>Markdown使用*和_表示强调<br>语法：</p>
+<pre><code>单星号 = *斜体*
+单下划线 = _斜体_
+双星号 = **加粗**
+双下划线 = __加粗__
+</code></pre><h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>图片使用方法和链接类似，只需要在中括号前面加<strong>叹号</strong>。</p>
+<blockquote>
+<p>markdown 语法不能设置图片大小，如果必须设置则应该使用HTML标记&lt; img&gt;</p>
+</blockquote>
+<pre><code>行内式：！[文本]（/img/background.jpg &quot;title&quot;）
+参考式：！[文本][pic]
+[pic]：/img/1.jpg &quot;title&quot;
+HTML：&lt;img src=&quot;/img/1.jpg&quot; alt=&quot;文本&quot; title=&quot;标题文本&quot; width=&quot;200&quot;/&gt;
+</code></pre><h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>Markdown语法因为编辑器的不同可能会有些细微差别，使用时请注意多多查询。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://equation85.github.io/blog/markdown-examples/" target="_blank" rel="external">http://equation85.github.io/blog/markdown-examples/</a><br><a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">http://wowubuntu.com/markdown/</a><br><a href="http://snails.github.io/2012/05/08/Learn-to-Markdown/" target="_blank" rel="external">http://snails.github.io/2012/05/08/Learn-to-Markdown/</a></p>
+
+      
+	
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术相关/">技术相关</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   

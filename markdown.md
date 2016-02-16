@@ -7,7 +7,7 @@ categories: 技术相关
 Markdown是由Jonh Gruber创建的一种轻量级的标记语言,目标是实现「易读易写」。它让人们能够以纯文本格式来编写文档，然后转换成html 文档。因为易读易写的特性，在写博客的人群中大受欢迎。
 
 
-#Markdown 编辑器
+#Markdown编辑器
 推荐以下几种Markdown编辑器：
 
 

@@ -76,7 +76,7 @@ Markdown 支持有序列表和无序列表。
 
 也可以使用`来标志如下所示：
 
-	```python
+	```
 	def say(gt):
 	    print("hello,world")
 	```

@@ -24,12 +24,12 @@ Markdown是由Jonh Gruber创建的一种轻量级的标记语言,目标是实现
 ##标题
 Markdown标题支持类 Setext 和类 atx 形式。
 类Setext使用底线的格式，利用*=*(最高阶标题)和*-*(第二阶标题)，例如：
-```
-This is an H1
-=======
-This is an H2
-------------
-```
+
+	This is an H1
+	=======
+	This is an H2
+	------------
+
 任意数量的*=*和*-*都有效果
 类Atx的形式则是在行首插入1到6个*#*，对应标题1到6阶，例如：
 ```
@@ -78,7 +78,7 @@ Markdown 支持有序列表和无序列表。
 
 	```python
 	def say(gt):
-		print("hello,world")
+	    print("hello,world")
 	```
 
 ##分割线

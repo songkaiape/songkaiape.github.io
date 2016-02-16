@@ -120,7 +120,7 @@ Markdown使用*和_表示强调
 
 # 图片
 图片使用方法和链接类似，只需要在中括号前面加**叹号**。
->markdown 语法不能设置图片大小，如果必须设置则应该使用HTML标记<img>
+>markdown 语法不能设置图片大小，如果必须设置则应该使用HTML标记< img>
 
 	行内式：！[文本]（/img/background.jpg "title"）
 	参考式：！[文本][pic]

@@ -76,10 +76,10 @@ Markdown 支持有序列表和无序列表。
 
 也可以使用`来标志如下所示：
 
-	\`\`\`python
+	```python
 	def say(gt):
 	    print("hello,world")
-	\`\`\`
+	```
 
 # 分割线
 使用3个以上的星号,减号，或者底线就可以实现：

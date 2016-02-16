@@ -1,4 +1,4 @@
-title:  Markdown 语法简介
+title:  Markdown
 date: 2016-2-16 9:48:11
 tags: 技术相关
 #Markdown简介

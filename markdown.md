@@ -11,10 +11,10 @@ Markdown是由Jonh Gruber创建的一种轻量级的标记语言,目标是实现
 推荐以下几种Markdown编辑器：
 
 
->1.Mac: Mou、Byword
->2.Windows: Sublime Text+Markdown 插件 、MarkdownPad
->3.Linux: Retext
->4.在线编辑器：[简书](http://jianshu.com),[stackedit](https://stackedit.io/editor#)
+>1. Mac: Mou、Byword
+>2. Windows: Sublime Text+Markdown 插件 、MarkdownPad
+>3. Linux: Retext
+>4. 在线编辑器：[简书](http://jianshu.com),[stackedit](https://stackedit.io/editor#)
 
 
 #Markdown常用语法

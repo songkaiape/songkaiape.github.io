@@ -3,18 +3,19 @@ date: 2016-2-16 9:48:11
 tags: markdown
 categories: 技术相关
 
-#Markdown 是由Jonh Gruber创建的一种轻量级的标记语言,目标是实现「易读易写」。它让人们能够以纯文本格式来编写文档，然后转换成html 文档。因为易读易写的特性，在写博客的人群中大受欢迎。
+#Markdown简介 
+Markdown是由Jonh Gruber创建的一种轻量级的标记语言,目标是实现「易读易写」。它让人们能够以纯文本格式来编写文档，然后转换成html 文档。因为易读易写的特性，在写博客的人群中大受欢迎。
 
 
 #Markdown 编辑器
 推荐以下几种Markdown编辑器：
 
-```
-1.    Mac: Mou、Byword
-2.    Windows: Sublime Text+Markdown 插件 、MarkdownPad
-3.    Linux: Retext
-4.    在线编辑器：[简书](http://jianshu.com),[stackedit](https://stackedit.io/editor#)
-```
+
+>1.Mac: Mou、Byword
+>2.Windows: Sublime Text+Markdown 插件 、MarkdownPad
+>3.Linux: Retext
+>4.在线编辑器：[简书](http://jianshu.com),[stackedit](https://stackedit.io/editor#)
+
 
 #Markdown常用语法
 

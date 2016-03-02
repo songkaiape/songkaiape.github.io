@@ -1,3 +1,10 @@
+title:  LongestPalindrome
+date: 2016-3-2 18:03:11
+tags: python, 算法
+categories: 技术相关
+
+---
+
 # 最长回文字符子串的解法(python版)
 > 问题描述：求一个字符串S的最长回文字符子串
 

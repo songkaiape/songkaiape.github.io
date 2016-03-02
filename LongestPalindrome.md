@@ -1,6 +1,8 @@
 title:  LongestPalindrome
 date: 2016-3-2 18:03:11
-tags: python, 算法
+tags: 
+- python
+- 算法
 categories: 技术相关
 
 ---

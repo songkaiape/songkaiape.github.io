@@ -183,10 +183,10 @@ class Solution:
 最近开始刷leetcode来熟悉python语法，作为一个算法苦手简直是被虐的心疼。不过接触了解了更多算法的原理，这篇文章主要是翻译了leetcode上面的一篇文章，并且把算法都改为Python实现了。翻译的不是很信达雅，有问题的同学可以移步原帖。
 
 
-参考：
-http://blog.csdn.net/suool/article/details/38383045
-http://articles.leetcode.com/longest-palindromic-substring-part-ii
-http://articles.leetcode.com/longest-palindromic-substring-part-i
+> 参考：
+> http://blog.csdn.net/suool/article/details/38383045
+> http://articles.leetcode.com/longest-palindromic-substring-part-ii
+> http://articles.leetcode.com/longest-palindromic-substring-part-i
 
 
 

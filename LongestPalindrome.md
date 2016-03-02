@@ -15,7 +15,7 @@ categories: 技术相关
 > 提示：
 > 首先你得清楚的了解什么是回文字符串。回文字符串就是是一个正反读起来都是一样的字符串。例如，"aba"就是回文字符串，"abc"则不是
 
-## 一个常见的错误
+# 一个常见的错误
 有些人可能会想到下面这样一个快速的解法，但是很不幸的是它是错误的（但是还是可以在此基础上进行修改的）：
 
 > 把字符串S反转变成S'。找到二者的最长公共子串，那就是最长回文子串。
@@ -33,12 +33,12 @@ S="abacdfgdcaba" S'="abacdgfdcaba"
 
 这给了我们一个: ![](http://latex.codecogs.com/png.latex?${O(N^{2})$)的DP算法，使用空间是: ![](http://latex.codecogs.com/png.latex?${O(N^{2})$).
 
-## 暴力解决法——![](http://latex.codecogs.com/png.latex?${O(N^{3})$)：
+# 暴力解决法——![](http://latex.codecogs.com/png.latex?${O(N^{3})$)：
 最简单的暴力解决办法就是找到所有可能的字符子串然后确定它是不是回文字符串。总共有C(n,2)种字符子串(除了单个字符的字符串)
 
 由于判断每个子串需要O(N)时间，这个算法的时间复杂度就是![](http://latex.codecogs.com/png.latex?${O(N^{3})$).
 
-## 动态规划解法，![](http://latex.codecogs.com/png.latex?${O(N^{2})$)时间和![](http://latex.codecogs.com/png.latex?${O(N^{2})$)空间
+# 动态规划解法，![](http://latex.codecogs.com/png.latex?${O(N^{2})$)时间和![](http://latex.codecogs.com/png.latex?${O(N^{2})$)空间
 
 为了获得明显提示，我们需要尽量避免在判断回文子串中不必要的重复计算。比如，"ababa"如果我们已经知道"bab"是一个回文字符串，明显的"ababa"一定是个回文字符串因为最左最右的字符是一样的。
 
@@ -76,7 +76,7 @@ def longestPalindromeDP(s):
 
 ```
 
-## 简单的中心扩展方法![](http://latex.codecogs.com/png.latex?${O(N^{2})$)时间和O(1)空间
+# 简单的中心扩展方法![](http://latex.codecogs.com/png.latex?${O(N^{2})$)时间和O(1)空间
 
 我们可以观察到回文字符串是中心对称的，因此，一个回文字符串可以从它的中心向外扩展，一共只有2N-1个这样的中心。
 
@@ -112,7 +112,7 @@ def longestPalindrome(s):
     return s[start:maxlen+start]
 ```
 
-## 一个O(N)的解法(Manacher算法)
+# 一个O(N)的解法(Manacher算法)
 
 > 这是一个不可思议的解法，完全不能想象还有这种解法，这大概就是算法之美吧。
 
@@ -187,7 +187,7 @@ class Solution:
         return s[(centerIndex  - maxLen)//2: (centerIndex  + maxLen)//2]
 ```
 
-## 结语
+# 结语
 
 最近开始刷leetcode来熟悉python语法，作为一个算法苦手简直是被虐的心疼。不过接触了解了更多算法的原理，这篇文章主要是翻译了leetcode上面的一篇文章，并且把算法都改为Python实现了。翻译的不是很信达雅，有问题的同学可以移步原帖。
 

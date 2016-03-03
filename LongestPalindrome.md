@@ -34,7 +34,7 @@ S="abacdfgdcaba" S'="abacdgfdcaba"
 
 我们可以发现上面的方法当字符存在一个非回文，反转的字符子串在S的其他部分时会出错。为了更正这个问题，每次我们找到一个最长公共子串，我们需要检查这个子串是不是回文子串。如果是，我们就记录下这个回文子串，否则就跳过它继续寻找。
 
-这给了我们一个: ![](http://latex.codecogs.com/png.latex?O(N^{2}))的DP算法，使用空间是: ![](http://latex.codecogs.com/png.latex?{O(N^{2})).
+这给了我们一个: ![](http://latex.codecogs.com/png.latex?$O(N^{2})$)的DP算法，使用空间是: ![](http://latex.codecogs.com/png.latex?{O(N^{2})).
 
 # 暴力解决法——![](http://latex.codecogs.com/png.latex?${O(N^{3})$)：
 最简单的暴力解决办法就是找到所有可能的字符子串然后确定它是不是回文字符串。总共有C(n,2)种字符子串(除了单个字符的字符串)

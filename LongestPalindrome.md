@@ -5,7 +5,7 @@ tags:
 - 算法
 categories: 技术相关
 
-description: "详细介绍了几种最长回文字符串的算法."
+description: "详细介绍了几种最长回文字符串的算法，并且用Python实现"
 ---
 详细介绍了几种最长回文字符串的算法,并且用Python实现
 

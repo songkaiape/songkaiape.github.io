@@ -63,7 +63,7 @@ def longestPalindromeDP(s):
     #生成N*N数组
     left,right=0,0
     mylist[0][0]=True
-    for i in range(n):
+    for i in range(1,n):
         mylist[i][i],mylist[i][i-1]=True,True
     #初始化数组
     for k in range(2,n+1):

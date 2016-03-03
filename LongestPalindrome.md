@@ -34,14 +34,14 @@ S="abacdfgdcaba" S'="abacdgfdcaba"
 
 我们可以发现上面的方法当字符存在一个非回文，反转的字符子串在S的其他部分时会出错。为了更正这个问题，每次我们找到一个最长公共子串，我们需要检查这个子串是不是回文子串。如果是，我们就记录下这个回文子串，否则就跳过它继续寻找。
 
-这给了我们一个: ![](http://latex.codecogs.com/png.latex?$O(N^{2})$)的DP算法，使用空间是: ![](http://latex.codecogs.com/png.latex?{O(N^{2})).
+这给了我们一个: ![](http://latex.codecogs.com/png.latex?$O(N^{2})$)的DP算法，使用空间是: ![](http://latex.codecogs.com/png.latex?$O(N^{2})$).
 
-# 暴力解决法——![](http://latex.codecogs.com/png.latex?${O(N^{3})$)：
+# 暴力解决法——![](http://latex.codecogs.com/png.latex?$O(N^{3})$)：
 最简单的暴力解决办法就是找到所有可能的字符子串然后确定它是不是回文字符串。总共有C(n,2)种字符子串(除了单个字符的字符串)
 
-由于判断每个子串需要O(N)时间，这个算法的时间复杂度就是![](http://latex.codecogs.com/png.latex?${O(N^{3})$).
+由于判断每个子串需要O(N)时间，这个算法的时间复杂度就是![](http://latex.codecogs.com/png.latex?$O(N^{3})$).
 
-# 动态规划解法，![](http://latex.codecogs.com/png.latex?${O(N^{2})$)时间和![](http://latex.codecogs.com/png.latex?${O(N^{2})$)空间
+# 动态规划解法，![](http://latex.codecogs.com/png.latex?$O(N^{2})$)时间和![](http://latex.codecogs.com/png.latex?$O(N^{2})$)空间
 
 为了获得明显提示，我们需要尽量避免在判断回文子串中不必要的重复计算。比如，"ababa"如果我们已经知道"bab"是一个回文字符串，明显的"ababa"一定是个回文字符串因为最左最右的字符是一样的。
 
@@ -79,13 +79,13 @@ def longestPalindromeDP(s):
 
 ```
 
-# 简单的中心扩展方法![](http://latex.codecogs.com/png.latex?${O(N^{2})$)时间和O(1)空间
+# 简单的中心扩展方法![](http://latex.codecogs.com/png.latex?$O(N^{2})$)时间和O(1)空间
 
 我们可以观察到回文字符串是中心对称的，因此，一个回文字符串可以从它的中心向外扩展，一共只有2N-1个这样的中心。
 
 你可能会问为什么是2N-1个而不是N个，原因是偶数回文的字符中心是在2个字符之间的，例如"abba"这个字符串的中心是在两个'b'之间的。
 
-因为扩展一个回文字符串需要花费O(N)的时间，总共的时间复杂度就是![](http://latex.codecogs.com/png.latex?${O(N^{2})$)。
+因为扩展一个回文字符串需要花费O(N)的时间，总共的时间复杂度就是![](http://latex.codecogs.com/png.latex?$O(N^{2})$)。
 
 ```python
 def longestPalindrome(s):

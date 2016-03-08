@@ -1,4 +1,4 @@
-title: About
+title: D3 JS effect
 date: 2016-03-8 14:55:55
 tags:
 - JS

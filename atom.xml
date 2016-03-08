@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://songkaiape.github.io/"/>
-  <updated>2016-03-04T02:04:41.648Z</updated>
+  <updated>2016-03-08T07:10:36.040Z</updated>
   <id>http://songkaiape.github.io/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>About</title>
+    <link href="http://songkaiape.github.io/2016/03/08/Intereting-3D-rectangle-by-D3-JS/"/>
+    <id>http://songkaiape.github.io/2016/03/08/Intereting-3D-rectangle-by-D3-JS/</id>
+    <published>2016-03-08T06:55:55.000Z</published>
+    <updated>2016-03-08T07:10:36.040Z</updated>
+    
+    <content type="html">&lt;p&gt;一个有趣的JS 3D特效&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;下面是个有趣的D3特效&quot;&gt;&lt;a href=&quot;#下面是个有趣的D3特效&quot; class=&quot;headerlink&quot; title=&quot;下面是个有趣的D3特效&quot;&gt;&lt;/a&gt;下面是个有趣的D3特效&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;第一次遇到还有点吓人的感觉，看久了觉得真&lt;strong&gt;鬼畜&lt;/strong&gt;=。=&lt;br&gt;出自&lt;a href=&quot;http://bl.ocks.org/mbostock/1123639&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;, 依靠&lt;a href=&quot;https://github.com/mbostock/d3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;D3&lt;/a&gt;制作而成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;div id=&quot;body1&quot;&gt;&lt;br&gt;如果觉得不错可以去学习一下&lt;a href=&quot;http://d3js.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;D3&lt;/a&gt;&lt;br&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+var mouse = [480, 250],
+    count = 0;
+
+var svg = d3.select(&quot;#body1&quot;).append(&quot;svg&quot;)
+    .attr(&quot;width&quot;, 960)
+    .attr(&quot;height&quot;, 500);
+
+var g = svg.selectAll(&quot;g&quot;)
+    .data(d3.range(25))
+  .enter().append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, &quot;translate(&quot; + mouse + &quot;)&quot;);
+
+g.append(&quot;rect&quot;)
+    .attr(&quot;rx&quot;, 6)
+    .attr(&quot;ry&quot;, 6)
+    .attr(&quot;x&quot;, -12.5)
+    .attr(&quot;y&quot;, -12.5)
+    .attr(&quot;width&quot;, 25)
+    .attr(&quot;height&quot;, 25)
+    .attr(&quot;transform&quot;, function(d, i) { return &quot;scale(&quot; + (1 - d / 25) * 20 + &quot;)&quot;; })
+    .style(&quot;fill&quot;, d3.scale.category20c());
+
+g.datum(function(d) {
+  return {center: [0, 0], angle: 0};
+});
+
+svg.on(&quot;mousemove&quot;, function() {
+  mouse = d3.mouse(this);
+});
+
+d3.timer(function() {
+  count++;
+  g.attr(&quot;transform&quot;, function(d, i) {
+    d.center[0] += (mouse[0] - d.center[0]) / (i + 5);
+    d.center[1] += (mouse[1] - d.center[1]) / (i + 5);
+    d.angle += Math.sin((count + i) / 10) * 7;
+    return &quot;translate(&quot; + d.center + &quot;)rotate(&quot; + d.angle + &quot;)&quot;;
+  });
+});
+
+&lt;/script&gt;
+
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个有趣的JS 3D特效&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术相关" scheme="http://songkaiape.github.io/categories/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="JS" scheme="http://songkaiape.github.io/tags/JS/"/>
+    
+      <category term="有趣的玩意" scheme="http://songkaiape.github.io/tags/%E6%9C%89%E8%B6%A3%E7%9A%84%E7%8E%A9%E6%84%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>LongestPalindrome</title>

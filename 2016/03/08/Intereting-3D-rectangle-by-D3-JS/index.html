@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: markdown | Inspiration</title>
+  <title>About | Inspiration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Inspiration">
-<meta property="og:url" content="http://songkaiape.github.io/tags/markdown/index.html">
+  <meta name="description" content="一个有趣的JS 3D特效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="About">
+<meta property="og:url" content="http://songkaiape.github.io/2016/03/08/Intereting-3D-rectangle-by-D3-JS/index.html">
 <meta property="og:site_name" content="Inspiration">
-<meta property="og:description">
+<meta property="og:description" content="一个有趣的JS 3D特效">
+<meta property="og:updated_time" content="2016-03-08T07:10:36.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Inspiration">
-<meta name="twitter:description">
+<meta name="twitter:title" content="About">
+<meta name="twitter:description" content="一个有趣的JS 3D特效">
   
     <link rel="alternative" href="/atom.xml" title="Inspiration" type="application/atom+xml">
   
@@ -36,9 +37,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false
       }
@@ -218,58 +219,268 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Intereting-3D-rectangle-by-D3-JS" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/02/16/markdown/" class="archive-article-date">
-      <time datetime="2016-02-16T01:48:11.000Z" itemprop="datePublished">02-16</time>
+    <div class="article-meta">
+      <a href="/2016/03/08/Intereting-3D-rectangle-by-D3-JS/" class="article-date">
+      <time datetime="2016-03-08T06:55:55.000Z" itemprop="datePublished">2016-03-08</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/16/markdown/">Markdown</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      About
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/技术相关/">技术相关</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/有趣的玩意/">有趣的玩意</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>一个有趣的JS 3D特效</p>
+<a id="more"></a>
+<h1 id="下面是个有趣的D3特效"><a href="#下面是个有趣的D3特效" class="headerlink" title="下面是个有趣的D3特效"></a>下面是个有趣的D3特效</h1><blockquote>
+<p>第一次遇到还有点吓人的感觉，看久了觉得真<strong>鬼畜</strong>=。=<br>出自<a href="http://bl.ocks.org/mbostock/1123639" target="_blank" rel="external">这里</a>, 依靠<a href="https://github.com/mbostock/d3" target="_blank" rel="external">D3</a>制作而成</p>
+</blockquote>
+<p><div id="body1"><br>如果觉得不错可以去学习一下<a href="http://d3js.org/" target="_blank" rel="external">D3</a><br></div></p>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+var mouse = [480, 250],
+    count = 0;
+
+var svg = d3.select("#body1").append("svg")
+    .attr("width", 960)
+    .attr("height", 500);
+
+var g = svg.selectAll("g")
+    .data(d3.range(25))
+  .enter().append("g")
+    .attr("transform", "translate(" + mouse + ")");
+
+g.append("rect")
+    .attr("rx", 6)
+    .attr("ry", 6)
+    .attr("x", -12.5)
+    .attr("y", -12.5)
+    .attr("width", 25)
+    .attr("height", 25)
+    .attr("transform", function(d, i) { return "scale(" + (1 - d / 25) * 20 + ")"; })
+    .style("fill", d3.scale.category20c());
+
+g.datum(function(d) {
+  return {center: [0, 0], angle: 0};
+});
+
+svg.on("mousemove", function() {
+  mouse = d3.mouse(this);
+});
+
+d3.timer(function() {
+  count++;
+  g.attr("transform", function(d, i) {
+    d.center[0] += (mouse[0] - d.center[0]) / (i + 5);
+    d.center[1] += (mouse[1] - d.center[1]) / (i + 5);
+    d.angle += Math.sin((count + i) / 10) * 7;
+    return "translate(" + d.center + ")rotate(" + d.angle + ")";
+  });
+});
+
+</script>
+
+
+      
+	
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/03/08/Intereting-3D-rectangle-by-D3-JS/">About</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 songkaiape 的个人博客">songkaiape</a></p>
+        <p><span>发布时间:</span>2016年03月08日 - 14时55分</p>
+        <p><span>最后更新:</span>2016年03月08日 - 15时10分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/08/Intereting-3D-rectangle-by-D3-JS/" title="About">http://songkaiape.github.io/2016/03/08/Intereting-3D-rectangle-by-D3-JS/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://songkaiape.github.io/2016/03/08/Intereting-3D-rectangle-by-D3-JS/　　作者: songkaiape" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/02/LongestPalindrome/">
+                    LongestPalindrome
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#下面是个有趣的D3特效"><span class="toc-number">1.</span> <span class="toc-text">下面是个有趣的D3特效</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/03/08/Intereting-3D-rectangle-by-D3-JS/" data-title="About" data-url="http://songkaiape.github.io/2016/03/08/Intereting-3D-rectangle-by-D3-JS/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"songkaiape"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/02/LongestPalindrome/" title="下一篇: LongestPalindrome">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/Intereting-3D-rectangle-by-D3-JS/">About</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/LongestPalindrome/">LongestPalindrome</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/16/markdown/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -362,17 +573,6 @@ MathJax.Hub.Queue(function() {
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

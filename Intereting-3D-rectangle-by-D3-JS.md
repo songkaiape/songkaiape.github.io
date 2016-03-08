@@ -18,6 +18,7 @@ categories: 技术相关
 <div id="body1">
 如果觉得不错可以去学习一下<a href="http://d3js.org/" target="_blank" rel="external">D3</a>
 </div>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 var mouse = [480, 250],
     count = 0;
@@ -60,4 +61,4 @@ d3.timer(function() {
 });
 
 </script>
-<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+

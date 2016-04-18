@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://songkaiape.github.io/"/>
-  <updated>2016-03-08T07:18:00.264Z</updated>
+  <updated>2016-04-18T02:29:05.961Z</updated>
   <id>http://songkaiape.github.io/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>raspberry-101</title>
+    <link href="http://songkaiape.github.io/2016/04/18/raspberry-101/"/>
+    <id>http://songkaiape.github.io/2016/04/18/raspberry-101/</id>
+    <published>2016-04-18T01:50:03.000Z</published>
+    <updated>2016-04-18T02:29:05.961Z</updated>
+    
+    <content type="html">&lt;p&gt;一个简单的树莓派上手指南&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;树莓派上手指南&quot;&gt;&lt;a href=&quot;#树莓派上手指南&quot; class=&quot;headerlink&quot; title=&quot;树莓派上手指南&quot;&gt;&lt;/a&gt;树莓派上手指南&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;树莓派简介&quot;&gt;&lt;a href=&quot;#树莓派简介&quot; class=&quot;headerlink&quot; title=&quot;树莓派简介&quot;&gt;&lt;/a&gt;树莓派简介&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;树莓派是一个基于Linux系统的开发板。只有信用卡大小，除了提供电脑系统基本接口以外还有数个GPIO接口。这些GPIO接口给予了这款产品无限的可能性，在各种GEEK的手里用它实现了各种有趣的功能。例如用树莓派+温度传感器实现室内温度监控，或者用它搭建一个GIT服务器，亦或者用树莓派做一个四轴飞行器。总之，只要有足够的想象力你可以做出各种不可思议的玩意。&lt;br&gt;当然作为一个新手，首先需要先对这个信用卡大小的小玩意熟悉操作和使用。&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;Up主买了树莓派3b没多久，之前也是看了别人分享的树莓派DIY玩法然后心动买了这个玩具，不过，听说很多人买了之后这个东西就沦落角落吃灰了。所以想买的同学可以先想好自己到底需不需要。&lt;/p&gt;
+&lt;p&gt;树莓派3b是树莓派最新的一款，比之前的一代提升了性能，并且自带了无线网卡，所以安装起来要方便很多。当然也有令人不爽的地方，发热问题变得更严重了，如果可以的话最好还是给他装上散热片吧。同时耗电也提升了，电源需求从5V1A提高到了5V2A。&lt;/p&gt;
+&lt;p&gt;树莓派一般默认配件是只有电源和板子，一般还需要配1张Class10的TF卡（PS：切记买大牌厂家的正规产品，我最开始用了一张虽然显示是Class10但是实际写入速度完全不对导致了我树莓派系统各种问题，换了张卡就完美解决了）。卡的大小一般来说16G就足够了。如果接屏幕你还需要买一根HDMI线，一般树莓派裸奔也是没有太大问题，当然更好的选择是买个树莓派盒子装上。散热片也是可选项。其他额外的配件基本就是按需购买了，例如摄像头、温度感应器、或者Led之类GPIO配件。这些一般价格并不便宜。&lt;/p&gt;
+&lt;h2 id=&quot;系统安装&quot;&gt;&lt;a href=&quot;#系统安装&quot; class=&quot;headerlink&quot; title=&quot;系统安装&quot;&gt;&lt;/a&gt;系统安装&lt;/h2&gt;&lt;p&gt;首先我们知道树莓派官方提供了Rasbian。新手一般建议使用这个。第三方的有Ubuntu Mate,Snappy Ubuntu core,OSMC(open source centre)以及Win10 IOT CORE。对！你没有看错，你确实可以用树莓派来装Win10。不过鉴于树莓派的性能，使用体验可能并不是特别好。&lt;/p&gt;
+&lt;p&gt;在这里我们选择Rasbian来安装。官方提供了一个NOOBS软件给新手，可以傻瓜安装。相关介绍可以去官网查询。这里我们直接下载官方的Raspbian系统镜像。然后需要准备以下选项：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;树莓派镜像&lt;/li&gt;
+&lt;li&gt;Win32Diskmanager 用来把镜像写入TF卡&lt;/li&gt;
+&lt;li&gt;DiskGenius 分区神器，这里用来格式化。&lt;br&gt;首先，格式化，选择FAT32格式即可，其他默认。&lt;br&gt;然后，打开Win32Diskmanager，选中正确的ISO镜像和你的TF卡。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/img/WIN32DISK.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;确认写入。等待完成之后卸载该TF卡。（有时候直接拔出可能导致TF卡文件错误然后系统就无法启动）然后就可以把TF卡插入树莓派了。&lt;/p&gt;
+&lt;p&gt;经常可能会出现系统断电强关的情况，然后树莓派系统无法进入，这个时候就需要把TF卡插入电脑然后扫描修复。如果还是不行那就只能重装了。&lt;/p&gt;
+&lt;h2 id=&quot;系统配置&quot;&gt;&lt;a href=&quot;#系统配置&quot; class=&quot;headerlink&quot; title=&quot;系统配置&quot;&gt;&lt;/a&gt;系统配置&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;给树莓派接电之后它就自动启动了，如果有接屏幕可以很直观的看见这个过程，如果没有那就得等他启动之后SSH连接上去，这里因为无线网需要进入进行配置所以你得插根网线接到路由器上，然后在路由器管理页面找到树莓派的IP地址，使用Putty进行SSH连接。&lt;br&gt;&lt;img src=&quot;/img/Putty.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;默认用户名:&lt;strong&gt;pi&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;密码：&lt;strong&gt;raspberry&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;/img/login.png&quot; alt=&quot;img&quot;&gt;&lt;br&gt;下一步是使用Windows自带的远程连接连接树莓派。这里我们需要使用这个命令：&lt;br&gt;    sudo apt-get install xrdp&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装这个之后我们就可以直接通过远程连接进入树莓派这里我们就可以看见树莓派桌面了。&lt;br&gt;&lt;img src=&quot;/img/desktop.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;另外树莓派默认英文字库，中文都显示为小方块。为了正确显示中文我们还得下载一个中文字体。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install ttf-wqy-zenhei
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;遇到（Y/n）输入Y即可。&lt;br&gt;接着安装个中文输入法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get intstall scim-pinyin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;接着我们在命令行输入这个：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo raspi-config
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后我们会进入树莓派设置界面。里面可以设置的东西很多这里不做详细介绍了。我们这里只修改下登录密码以及语言和时区。&lt;br&gt;&lt;img src=&quot;/img/config.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;密码设置按照提示就可以完成。&lt;/p&gt;
+&lt;p&gt;语言设置（locale）：选择zh-CN UTF-8&lt;/p&gt;
+&lt;p&gt;时区设置：在Asia里找到Chongqin即可&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接着重启一下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完成后即可正确显示中文，切换输入法&lt;strong&gt;ctrl+space&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;多媒体&quot;&gt;&lt;a href=&quot;#多媒体&quot; class=&quot;headerlink&quot; title=&quot;多媒体&quot;&gt;&lt;/a&gt;多媒体&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;树莓派是基于linux的系统所以对于图形界面的支持比较不给力，树莓派播放多媒体文件可以使用omxplayer不过这个是基于命令行的而且会输出到hdmi端，这意味着你如果没插hdmi线是无法看见视频的。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install omxplayer
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/img/omxplayer.png&quot; alt=&quot;img&quot;&gt;&lt;br&gt;另外还有一个播放音频的mplayer&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install mplayer
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;树莓派的初始配置就到此结束了。现在你可以根据你的爱好去研究某个方面，或者参考别人的作品来自己实践。&lt;br&gt;这里推荐几个不错的树莓派网站。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://shumeipai.nxez.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;树莓派实验室&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.raspberrypi.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;树莓派官网&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个简单的树莓派上手指南&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术相关" scheme="http://songkaiape.github.io/categories/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="python" scheme="http://songkaiape.github.io/tags/python/"/>
+    
+      <category term="树莓派" scheme="http://songkaiape.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>D3 JS effect</title>

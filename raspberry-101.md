@@ -1,7 +1,9 @@
 title: raspberry101
 date: 2016-04-18 09:50:03
-tags: 树莓派
-categories： 技术相关
+tags:
+- JS
+- 树莓派
+categories: 技术相关
 
 ---
 

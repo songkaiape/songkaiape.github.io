@@ -91,7 +91,7 @@ Up主买了树莓派3b没多久，之前也是看了别人分享的树莓派DIY�
 树莓派是基于linux的系统所以对于图形界面的支持比较不给力，树莓派播放多媒体文件可以使用omxplayer不过这个是基于命令行的而且会输出到hdmi端，这意味着你如果没插hdmi线是无法看见视频的。
 
 	sudo apt-get install omxplayer
-![img](omxplayer.png)
+![img](/img/omxplayer.png)
 另外还有一个播放音频的mplayer
 
 	sudo apt-get install mplayer

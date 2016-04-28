@@ -64,8 +64,11 @@ date: 2016-02-14 11:17:55
 **学习计划**：
 
 > python: 使用python写个博客，做个爬虫
+
 > 了解IOS开发，
+
 > 学习NodeJS
+
 > 折腾一下 Mac和linux
 
 ## Simple is better~

@@ -23,7 +23,7 @@ categories: 技术相关
 
 分析：一开始看见这个题目是没有什么思路的，看了提示用BFS,然后采取把BFS相关算法介绍看了一下，才大概有个思路，通过广度搜索暴力求解答案。
 因为图比较小，所以花的时间并不是太多。简单的说就是模拟所有可能路径找到最短的那条。
-```
+```python
 def exchange(status, p1, p2):
     # 交换P1 P2，
     small=p1 if p1<p2 else p2
@@ -75,7 +75,7 @@ struct tree * right;
 求二叉树宽度， ROOT 为此二叉树根节点指针 
 
 分析：BFS简单的概念题，二叉树搜索，循环遍历每一层的节点，计算出个数，输出一个最大值即可
-```
+```python
 class Node:
     def __init__(self):
         self.left = None

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BFS algorithm | Inspiration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一些最近遇到的广度搜索算法题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BFS algorithm">
+<meta property="og:url" content="http://songkaiape.github.io/2016/04/24/BFSalgorithm/index.html">
+<meta property="og:site_name" content="Inspiration">
+<meta property="og:description" content="一些最近遇到的广度搜索算法题">
+<meta property="og:image" content="http://songkaiape.github.io/img/algorithm.jpg">
+<meta property="og:updated_time" content="2016-05-25T01:38:10.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BFS algorithm">
+<meta name="twitter:description" content="一些最近遇到的广度搜索算法题">
+  
+    <link rel="alternative" href="/atom.xml" title="Inspiration" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">songkaiape</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Never underestimate your power to change yourself!</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/2373309543/" title="新浪微博"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="http://github.com/songkaiape/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Instagram"><a class="Instagram" target="_blank" href="http://songkaiape.lofter.com" title="Instagram"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/有趣的玩意/" style="font-size: 10px;">有趣的玩意</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">掌控自己</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">songkaiape</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">songkaiape</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Never underestimate your power to change yourself!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/2373309543/" title="新浪微博"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="http://github.com/songkaiape/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Instagram"><a class="Instagram" target="_blank" href="http://songkaiape.lofter.com" title="Instagram"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-BFSalgorithm" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/24/BFSalgorithm/" class="article-date">
+      <time datetime="2016-04-24T02:55:22.000Z" itemprop="datePublished">2016-04-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BFS algorithm
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术相关/">技术相关</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>一些最近遇到的广度搜索算法题</p>
+<a id="more"></a>
+<h1 id="几道广度搜索算法"><a href="#几道广度搜索算法" class="headerlink" title="几道广度搜索算法"></a>几道广度搜索算法</h1><p>最近在看算法然后就看见了几道BFS的算法题，之前对于算法学的并不好，基本全忘了，正好用着复习一下</p>
+<h2 id="方块问题"><a href="#方块问题" class="headerlink" title="方块问题"></a>方块问题</h2><blockquote>
+<p>在一个4行4列的平面立面，有7个红色块8个蓝色块和一个白色块，你只能移动白色的快，当移动后，白色块会和被移动的块交换位置。<br>使用上下左右来记录白色块的交换顺序，问：最少需要多少步能让图形从S变为T</p>
+</blockquote>
+<p><img src="/img/algorithm.jpg" alt="算法图片"></p>
+<p>分析：一开始看见这个题目是没有什么思路的，看了提示用BFS,然后采取把BFS相关算法介绍看了一下，才大概有个思路，通过广度搜索暴力求解答案。<br>因为图比较小，所以花的时间并不是太多。简单的说就是模拟所有可能路径找到最短的那条。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exchange</span><span class="params">(status, p1, p2)</span>:</span></span><br><span class="line">    <span class="comment"># 交换P1 P2，</span></span><br><span class="line">    small=p1 <span class="keyword">if</span> p1&lt;p2 <span class="keyword">else</span> p2</span><br><span class="line">    big=p2 <span class="keyword">if</span> p2&gt;=p1 <span class="keyword">else</span> p1</span><br><span class="line">    <span class="keyword">return</span> status[:small]+status[big]+status[small+<span class="number">1</span>:big]+status[small]+status[big+<span class="number">1</span>:]</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">go</span><span class="params">(node)</span>:</span></span><br><span class="line">    <span class="comment"># path: 到达目前状态的路径</span></span><br><span class="line">    <span class="comment"># cursor: 可移动块所处的位置</span></span><br><span class="line">    <span class="comment"># status: 当前状态</span></span><br><span class="line">    (path, cursor, status) = node</span><br><span class="line">    <span class="keyword">if</span> cursor == <span class="number">0</span> <span class="keyword">and</span> status == <span class="string">'2101101001011010'</span>:</span><br><span class="line">        print(path)</span><br><span class="line">    <span class="keyword">if</span> status <span class="keyword">in</span> visited:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    visited[status] = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">if</span> cursor + <span class="number">4</span> &lt; <span class="number">16</span>: <span class="comment"># go Up</span></span><br><span class="line">        patterns.append((path + <span class="string">"D"</span>, cursor + <span class="number">4</span>, exchange(status, cursor, cursor + <span class="number">4</span>)))</span><br><span class="line">    <span class="keyword">if</span> cursor - <span class="number">4</span> &gt; -<span class="number">1</span>: <span class="comment"># go Down</span></span><br><span class="line">        patterns.append((path + <span class="string">"U"</span>, cursor - <span class="number">4</span>, exchange(status, cursor, cursor - <span class="number">4</span>)))</span><br><span class="line">    <span class="keyword">if</span> cursor % <span class="number">4</span> &lt; <span class="number">3</span>: <span class="comment"># go Left</span></span><br><span class="line">        patterns.append((path + <span class="string">"R"</span>, cursor + <span class="number">1</span>, exchange(status, cursor, cursor + <span class="number">1</span>)))</span><br><span class="line">    <span class="keyword">if</span> cursor % <span class="number">4</span> &gt; <span class="number">0</span>: <span class="comment"># go Right</span></span><br><span class="line">        patterns.append((path + <span class="string">"L"</span>, cursor - <span class="number">1</span>, exchange(status, cursor, cursor - <span class="number">1</span>)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">patterns = [(<span class="string">""</span>, <span class="number">0</span>, <span class="string">'2011001100110011'</span>)]</span><br><span class="line">visited = &#123;&#125; <span class="comment"># 保存到达过的状态</span></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> (count &lt; len(patterns)):</span><br><span class="line">    <span class="keyword">if</span> go(patterns[count]):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    count += <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>当然如果用位运算应该效率更高，不过因为不擅长位运算就不用位运算了。</p>
+<h1 id="二叉树宽度"><a href="#二叉树宽度" class="headerlink" title="二叉树宽度"></a>二叉树宽度</h1><blockquote>
+<p>定义二叉树的宽度为二叉树中包含节点最多的层中的节点数。现有一颗二叉树，其深度不大于 N<br>基本结构为<br>typedef struct tree<br>{<br>struct tree <em> left;<br>struct tree </em> right;<br>} * Btree<br>求二叉树宽度， ROOT 为此二叉树根节点指针 </p>
+</blockquote>
+<p>分析：BFS简单的概念题，二叉树搜索，循环遍历每一层的节点，计算出个数，输出一个最大值即可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.left = <span class="keyword">None</span></span><br><span class="line">        self.right = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_width</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    arr1 = []</span><br><span class="line">    arr2 = []</span><br><span class="line">    arr1.append(root)</span><br><span class="line">    ans = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> len(arr1) &gt; <span class="number">0</span>:</span><br><span class="line">        arr2 = []</span><br><span class="line">        <span class="keyword">for</span> node <span class="keyword">in</span> arr1:</span><br><span class="line">            <span class="keyword">if</span> node.left:</span><br><span class="line">                arr2.append(node.left)</span><br><span class="line">            <span class="keyword">if</span> node.right:</span><br><span class="line">                arr2.append(node.right)</span><br><span class="line">        ans = max(ans, len(arr2))</span><br><span class="line">        arr1 = arr2</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">n1 = Node()</span><br><span class="line">n2 = Node()</span><br><span class="line">n3 = Node()</span><br><span class="line">n4 = Node()</span><br><span class="line">n5 = Node()</span><br><span class="line">n6 = Node()</span><br><span class="line">n7 = Node()</span><br><span class="line">n8 = Node()</span><br><span class="line">n9 = Node()</span><br><span class="line">n0 = Node()</span><br><span class="line">n1.left = n2</span><br><span class="line">n1.right = n3</span><br><span class="line">n2.left = n4</span><br><span class="line">n2.right = n5</span><br><span class="line">n4.right = n6</span><br><span class="line">n5.left = n7</span><br><span class="line">n5.right = n8</span><br><span class="line">n3.right = n9</span><br><span class="line">n3.left = n0</span><br><span class="line"><span class="keyword">print</span> max_width(n1)</span><br><span class="line"><span class="keyword">print</span> max_width(n2)</span><br></pre></td></tr></table></figure></p>
+<h1 id="和BFS无关的一道题"><a href="#和BFS无关的一道题" class="headerlink" title="和BFS无关的一道题"></a>和BFS无关的一道题</h1><blockquote>
+<p>搜狐员工小王最近利用假期在外地旅游，在某个小镇碰到一个马戏团表演，精彩的表演结束后发现团长正和大伙在帐篷前激烈讨论，小王打听了下了解到， 马戏团正打算出一个新节目“最高罗汉塔”，即马戏团员叠罗汉表演。考虑到安全因素，要求叠罗汉过程中，站在某个人肩上的人应该既比自己矮又比自己瘦，或相等。 团长想要本次节目中的罗汉塔叠的最高，由于人数众多，正在头疼如何安排人员的问题。小王觉得这个问题很简单，于是统计了参与最高罗汉塔表演的所有团员的身高体重，并且很快找到叠最高罗汉塔的人员序列。 现在你手上也拿到了这样一份身高体重表，请找出可以叠出的最高罗汉塔的高度，这份表中马戏团员依次编号为1到N。<br>输入描述:<br>首先一个正整数N，表示人员个数。<br>之后N行，每行三个数，分别对应马戏团员编号，体重和身高。<br>输出描述:<br>正整数m，表示罗汉塔的高度。<br>输入例子:<br>6<br>1 65 100<br>2 75 80<br>3 80 100<br>4 60 95<br>5 82 101<br>6 81 70<br>输出例子:<br> 4</p>
+</blockquote>
+<p>分析：这个题目我觉得挺有趣的，主要是身高体重2列，排序好身高然后就需要比较体重。搜了一下发现是一个最长上升子序列长度的问题。现在的问题就变成了找体重的最长子序列就可以了。<br>最长子序列可以开一个栈，每次取栈顶元素top和读到的temp元素做比较，如果temp&gt;top就把temp入栈，如果temp&lt;top就二分查找栈中比temp大的第一个数并用temp替换它。最长子序列即为栈的大小。<a href="http://www.acmerblog.com/lis-nlogn-4730.html" target="_blank" rel="external">参考</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lcs</span><span class="params">(nums)</span>:</span></span><br><span class="line">    stack=[]</span><br><span class="line">    stack.append(-<span class="number">1</span>)</span><br><span class="line">    top=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">        print(stack)</span><br><span class="line">        <span class="keyword">if</span> nums[i]&gt;stack[top]:</span><br><span class="line">            stack.append(nums[i])</span><br><span class="line">            top+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            low=<span class="number">1</span></span><br><span class="line">            high=top</span><br><span class="line">            mid=<span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> low&lt;=high:</span><br><span class="line">                mid=(low+high)//<span class="number">2</span></span><br><span class="line">                <span class="keyword">if</span> nums[i]&gt;stack[mid]:</span><br><span class="line">                    low=mid+<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    high=mid-<span class="number">1</span></span><br><span class="line">            stack[low]=nums[i]</span><br><span class="line">            </span><br><span class="line">    print(top)</span><br><span class="line">    print(stack[<span class="number">1</span>:])</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">lcs([<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">22</span>,<span class="number">11</span>,<span class="number">20</span>])</span><br></pre></td></tr></table></figure>
+
+      
+	
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/04/24/BFSalgorithm/">BFS algorithm</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 songkaiape 的个人博客">songkaiape</a></p>
+        <p><span>发布时间:</span>2016年04月24日 - 10时55分</p>
+        <p><span>最后更新:</span>2016年05月25日 - 09时38分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/24/BFSalgorithm/" title="BFS algorithm">http://songkaiape.github.io/2016/04/24/BFSalgorithm/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://songkaiape.github.io/2016/04/24/BFSalgorithm/　　作者: songkaiape" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/04/18/raspberry-101/">
+                    raspberry-101
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#几道广度搜索算法"><span class="toc-number">1.</span> <span class="toc-text">几道广度搜索算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方块问题"><span class="toc-number">1.1.</span> <span class="toc-text">方块问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉树宽度"><span class="toc-number">2.</span> <span class="toc-text">二叉树宽度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#和BFS无关的一道题"><span class="toc-number">3.</span> <span class="toc-text">和BFS无关的一道题</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/04/24/BFSalgorithm/" data-title="BFS algorithm" data-url="http://songkaiape.github.io/2016/04/24/BFSalgorithm/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"songkaiape"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/04/18/raspberry-101/" title="下一篇: raspberry-101">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/24/BFSalgorithm/">BFS algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/raspberry-101/">raspberry-101</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/Intereting-3D-rectangle-by-D3-JS/">D3 JS effect</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/LongestPalindrome/">LongestPalindrome</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/16/markdown/">Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 songkaiape
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

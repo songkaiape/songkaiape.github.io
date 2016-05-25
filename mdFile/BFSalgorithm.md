@@ -142,3 +142,32 @@ print max_width(n2)
  
 分析：这个题目我觉得挺有趣的，主要是身高体重2列，排序好身高然后就需要比较体重。搜了一下发现是一个最长上升子序列长度的问题。现在的问题就变成了找体重的最长子序列就可以了。
 最长子序列可以开一个栈，每次取栈顶元素top和读到的temp元素做比较，如果temp>top就把temp入栈，如果temp<top就二分查找栈中比temp大的第一个数并用temp替换它。最长子序列即为栈的大小。[参考](http://www.acmerblog.com/lis-nlogn-4730.html)
+
+```python
+def lcs(nums):
+    stack=[]
+    stack.append(-1)
+    top=0
+    for i in range(len(nums)):
+        print(stack)
+        if nums[i]>stack[top]:
+            stack.append(nums[i])
+            top+=1
+        else:
+            low=1
+            high=top
+            mid=0
+            while low<=high:
+                mid=(low+high)//2
+                if nums[i]>stack[mid]:
+                    low=mid+1
+                else:
+                    high=mid-1
+            stack[low]=nums[i]
+            
+    print(top)
+    print(stack[1:])
+    return
+
+lcs([1,5,2,3,7,22,11,20])
+```

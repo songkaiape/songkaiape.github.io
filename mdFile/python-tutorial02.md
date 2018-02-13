@@ -121,7 +121,7 @@ def index():
 该`render_template()`函数调用与Flask框架附带的[Jinja2](http://jinja.pocoo.org/)模板引擎。`Jinja2`使用`render_template()` 种相应的参数值去替换 `{{ ... }}`。
 
 # 条件声明
-您已经看到Jinja2在渲染过程中是如何用实际值替换占位符，但这只是Jinja2在模板文件中支持的许多强大操作之一。例如，模板也支持内部`{{% ... %}}`块中给出的控制语句。*index.html*模板的下一个版本添加了一个条件语句：
+您已经看到Jinja2在渲染过程中是如何用实际值替换占位符，但这只是Jinja2在模板文件中支持的许多强大操作之一。例如，模板也支持内部`\{% ... %\}`块中给出的控制语句。*index.html*模板的下一个版本添加了一个条件语句：
 ```HTML
 app / templates / index.html：模板中的条件语句
 

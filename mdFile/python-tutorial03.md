@@ -238,7 +238,7 @@ app / templates / base.html：在基本模板中闪烁的消息
     </body>
 </html>
 ```
-在这里，我使用一个with构造函数将get_flashed_messages()的返回值赋值给messages变量，全部在模板的上下文中。`get_flashed_messages()`功能来自Flask，并返回`flash()`以前注册的所有消息的列表。接下来的条件检查是否messages有一些内容，并且在这种情况下，<ul>每个消息将呈现一个元素作为<li>列表项。这种渲染风格看起来不太好，我们会在后续章节改进。
+在这里，我使用一个with构造函数将get_flashed_messages()的返回值赋值给messages变量，全部在模板的上下文中。`get_flashed_messages()`功能来自Flask，并返回`flash()`以前注册的所有消息的列表。接下来的条件检查是否messages有一些内容，并且在这种情况下，\<ul\>每个消息将呈现一个元素作为\<li\>列表项。这种渲染风格看起来不太好，我们会在后续章节改进。
 
 这些闪存消息的一个有趣属性是，一旦通过`get_flashed_messages`函数请求了一次消息，它们将从消息列表中删除，因此它们在flash()调用该函数后仅出现一次。
 
@@ -313,7 +313,7 @@ def login():
 
 所以从现在开始，每当我需要生成一个应用程序URL时，我都会使用url_for()。基本模板中的导航栏会变成：
 ```html
-app / templates / base.html：使用链接的url \ _for（）函数
+app / templates / base.html：使用链接的url_for（）函数
 
     <div>
         Microblog:
